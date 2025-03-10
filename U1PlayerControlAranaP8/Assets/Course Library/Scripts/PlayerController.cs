@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 5.0f;
-    private float turnSpeed = 25.0f;
+    private float speed = 20.0f;
+    private float turnSpeed = 70.0f;
     private float horizontalInput;
     private float forwardInput;
 
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Verticle");
+        forwardInput = Input.GetAxis("Vertical");
 
         // We'll move the vehicle foward
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
