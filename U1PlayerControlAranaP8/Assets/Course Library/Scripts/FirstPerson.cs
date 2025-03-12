@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class FirstPerson : MonoBehaviour
 {
-    public Camera Cam1;
-    public Camera Cam2;
-
+    public GameObject Player;
+    private Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
     {
-        Cam1.enabled = true;
-        Cam2.enabled = false;
+        offset = new Vector3(0, 4f, -8f);
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        if(Input.GetButtonDown("CameraSwitch"))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            Cam1.enabled = !Cam1.enabled;
-            Cam2.enabled = !Cam2.enabled;
+            offset = new Vector3(0, 4f, -8f);
+
         }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            offset = new Vector3(0, 4f, 0f);
+        }
+        transform.position = Player.transform.position + offset;
+
+
+
     }
 }
