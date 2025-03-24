@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControllerX : MonoBehaviour
 {
     public float speed;
-    public float pitchSpeed;
+    public float rotationSpeed;
     public float verticalInput;
     
 
@@ -19,12 +19,12 @@ public class PlayerControllerX : MonoBehaviour
     void FixedUpdate()
     {
         // Get the input for vertical movement (up/down)
-        verticalInput = Input.GetAxis("Vertical");
+         verticalInput = Input.GetAxis("Vertical");
 
         // Move the plane up and down
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
             
-        transform.Rotate(Vector3.right * pitchSpeed * Time.deltaTime * verticalInput);
+        transform.Rotate(Vector3.right * rotationSpeed * Time.deltaTime * verticalInput);
 
        
     }
