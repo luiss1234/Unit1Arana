@@ -22,9 +22,9 @@ public class PlayerControllerX : MonoBehaviour
          verticalInput = Input.GetAxis("Vertical");
 
         // Move the plane up and down
-        transform.Translate(Vector3.forward *  speed);
+        transform.Translate(Vector3.forward *  speed * Time.deltaTime);
             
-        transform.Rotate(Vector3.right * rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.right * rotationSpeed * Time.deltaTime * verticalInput);
 
        
     }
